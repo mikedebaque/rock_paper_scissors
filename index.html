@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function computerPlay() {
+            let playOptions = ['Rock', 'Paper', 'Scissors']
+            let computerChoice = playOptions[Math.floor(Math.random() * playOptions.length)]
+            return computerChoice
+        }
+        function playRound(playerChoice, computerChoice) {
+            playerChoice = playerChoice.toLowerCase()
+            computerChoice = computerChoice.toLowerCase()
+
+            console.log('Computer choice : ' + computerChoice)
+            console.log('Your choice : ' + playerChoice)
+            switch (computerChoice) {
+                case 'rock':
+                    switch (playerChoice) {
+                        case 'rock':
+                            return 'Draw'
+                            break
+                        case 'paper':
+                            return 'You win'
+                            break
+                        case 'scissors':
+                            return 'You lose'
+                            break
+                        default:
+                            return 'Invalid input'
+
+                    }
+                    break
+                case 'paper':
+                    switch (playerChoice) {
+                        case 'rock':
+                            return 'You lose'
+                            break
+                        case 'paper':
+                            return 'Draw'
+                            break
+                        case 'scissors':
+                            return 'You win'
+                            break
+                        default:
+                            return 'Invalid input'
+
+                    }
+                    break
+                case 'scissors':
+                    switch (playerChoice) {
+                        case 'rock':
+                            return 'You win'
+                            break
+                        case 'paper':
+                            return 'You lose'
+                            break
+                        case 'scissors':
+                            return 'Draw'
+                            break
+                        default:
+                            return 'Invalid input'
+
+                    }
+                    break
+
+            }
+
+
+        }
+
+        function game() {
+            let computerScore = 0
+            let playerScore = 0
+            let resultGame;
+            let playerChoice;
+            let computerChoice;
+            for (i = 0; i < 5; i++) {
+                playerChoice = prompt('Chose between rock, paper or scissors : ')
+                computerChoice = computerPlay()
+                resultGame = playRound(playerChoice, computerChoice);
+                switch (resultGame) {
+                    case 'You win':
+                        console.log('You win')
+                        playerScore++;
+                        break;
+                    case 'You lose':
+                        console.log('You lose')
+                        computerScore++;
+                        break;
+                    case 'Draw':
+                        console.log('Draw')
+                        break
+                    default:
+                        console.log('Invalid input')
+                }
+                console.log('You : ' + playerScore + ' | ' + computerScore + ' : Computer')
+            }
+        }
+
+        game()
+
+    </script>
+
+</body>
+
+</html>
